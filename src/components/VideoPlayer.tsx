@@ -26,10 +26,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ day, subject }) => {
   const [activeSegment, setActiveSegment] = useState<Segment | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // For prototype, we use the copied JSON. In a real app, URL would be dynamic based on day/subject.
-  const videoUrl = "./Grade_5_001_Arithmetic_5.mp4"; // Make sure to put the MP4 in public folder
+  // For the online demo, we use a sample video directly because the real MP4 is too large (582MB) to host on GitHub Pages.
+  // When running locally, change this back to "./Grade_5_001_Arithmetic_5.mp4" after putting the file in the public folder.
+  const videoUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
   const jsonUrl = "./Grade_5_001_Arithmetic_5.json";
-  const fallbackVideo = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
   const [currentVideoSrc, setCurrentVideoSrc] = useState(videoUrl);
 
   useEffect(() => {
