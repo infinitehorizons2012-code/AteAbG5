@@ -29,8 +29,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ day, subject }) => {
   // For prototype, we use the copied JSON. In a real app, URL would be dynamic based on day/subject.
   const videoUrl = "./Grade_5_001_Arithmetic_5.mp4"; // Make sure to put the MP4 in public folder
   const jsonUrl = "./Grade_5_001_Arithmetic_5.json";
-  // Fallback video for testing if local video is not copied
   const fallbackVideo = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+  const [currentVideoSrc, setCurrentVideoSrc] = useState(videoUrl);
 
   useEffect(() => {
     // Fetch JSON data
@@ -59,8 +59,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ day, subject }) => {
       if (current) {
         setActiveSegment(current);
       } else if (activeSegment && time > activeSegment.end) {
-        // Keep the previous segment on screen shortly or clear it if it's been too long
-        // For simplicity, clear it if we are outside any segment.
         setActiveSegment(null);
       }
     }
@@ -73,11 +71,11 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ day, subject }) => {
           ref={videoRef}
           controls 
           onTimeUpdate={handleTimeUpdate}
-          src={videoUrl}
+          src={currentVideoSrc}
           onError={() => {
-            console.log("Local video failed to load, trying fallback.");
-            if (videoRef.current && videoRef.current.src !== fallbackVideo) {
-              videoRef.current.src = fallbackVideo;
+            if (currentVideoSrc !== fallbackVideo) {
+              console.log("Local video failed to load, switching to fallback.");
+              setCurrentVideoSrc(fallbackVideo);
             }
           }}
         >
