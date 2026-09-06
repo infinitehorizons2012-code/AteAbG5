@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './index.css';
 import Navbar from './components/Navbar';
 import VideoPlayer from './components/VideoPlayer';
