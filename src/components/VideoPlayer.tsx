@@ -30,7 +30,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ day, subject }) => {
   // When running locally, change this back to "./Grade_5_001_Arithmetic_5.mp4" after putting the file in the public folder.
   const videoUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
   const jsonUrl = "./Grade_5_001_Arithmetic_5.json";
-  const [currentVideoSrc, setCurrentVideoSrc] = useState(videoUrl);
 
   useEffect(() => {
     // Fetch JSON data
@@ -71,7 +70,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ day, subject }) => {
           ref={videoRef}
           controls 
           onTimeUpdate={handleTimeUpdate}
-          src={currentVideoSrc}
+          src={videoUrl}
         >
           Trình duyệt của bạn không hỗ trợ thẻ video.
         </video>
