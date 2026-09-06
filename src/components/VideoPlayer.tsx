@@ -30,7 +30,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ day, subject }) => {
   const videoUrl = "./Grade_5_001_Arithmetic_5.mp4"; // Make sure to put the MP4 in public folder
   const jsonUrl = "./Grade_5_001_Arithmetic_5.json";
   // Fallback video for testing if local video is not copied
-  const fallbackVideo = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+  const fallbackVideo = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
   useEffect(() => {
     // Fetch JSON data
