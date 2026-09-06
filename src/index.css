@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #f1274c; /* Red from the screenshot logo/button */
+  --primary-hover: #d11d3d;
+  --bg-color: #f5f7f9; /* Light grayish-blue background */
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --border-color: #e2e8f0;
+  --tab-active-color: #3b82f6; /* Blue for active tab */
+  --tab-inactive-color: #64748b;
+  --karaoke-highlight: #facc15; /* Yellow for karaoke */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 64px;
+  background-color: var(--card-bg);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-box {
+  width: 32px;
+  height: 32px;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.brand-text h1 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.brand-text p {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-center {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-item {
+  color: var(--tab-inactive-color);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-item:hover {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
+
+.nav-item.active {
+  color: var(--tab-active-color);
+  background-color: #eff6ff; /* light blue bg */
+}
+
+.nav-right .btn-login {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nav-right .btn-login:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.content-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 10px 15px rgba(0,0,0,0.03);
+  padding: 32px;
+  min-height: 500px;
+}
+
+/* Video Section */
+.video-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.controls-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: var(--bg-color);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-group label {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.control-group select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  font-size: 14px;
+  outline: none;
+  min-width: 150px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.control-group select:focus {
+  border-color: var(--tab-active-color);
+}
+
+.player-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  background-color: #000;
+}
+
+.video-wrapper video {
+  width: 100%;
+  display: block;
+}
+
+/* Karaoke Subtitles */
+.subtitle-container {
+  width: 100%;
+  max-width: 800px;
+  min-height: 80px;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 12px;
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.subtitle-text {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.5;
+  transition: all 0.1s ease;
+}
+
+.karaoke-word {
+  margin-right: 6px;
+  transition: color 0.1s ease;
+}
+
+.karaoke-word.active {
+  color: var(--karaoke-highlight);
+  text-shadow: 0 0 8px rgba(250, 204, 21, 0.5);
+}
+
+/* Loading/Empty States */
+.empty-state {
+  text-align: center;
+  padding: 48px;
+  color: var(--text-muted);
+}
