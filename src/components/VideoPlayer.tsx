@@ -72,12 +72,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ day, subject }) => {
           controls 
           onTimeUpdate={handleTimeUpdate}
           src={currentVideoSrc}
-          onError={() => {
-            if (currentVideoSrc !== fallbackVideo) {
-              console.log("Local video failed to load, switching to fallback.");
-              setCurrentVideoSrc(fallbackVideo);
-            }
-          }}
         >
           Trình duyệt của bạn không hỗ trợ thẻ video.
         </video>
